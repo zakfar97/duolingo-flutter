@@ -3,17 +3,21 @@ import 'package:flutter/material.dart';
 class AppBarHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.white,
-          leading: IconButton(
-            padding: const EdgeInsets.only(left: 16),
-            icon: Image.asset("assets/images/appBar/flag.png"),
-            onPressed: () {},
-          ),
-          elevation: 5,
-          actions: <Widget>[
-            Row(
-              children: <Widget> [
+    return PreferredSize(
+      preferredSize: const Size.fromHeight(kToolbarHeight), // ✅ Fix
+      child: AppBar(
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          padding: const EdgeInsets.only(left: 16),
+          icon: Image.asset("assets/images/appBar/flag.png"),
+          onPressed: () {},
+        ),
+        elevation: 5,
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 16), // ✅ Prevents overflow
+            child: Row(
+              children: <Widget>[
                 IconButton(
                   icon: Image.asset(
                     "assets/images/appBar/crown_stroke.png",
@@ -24,13 +28,12 @@ class AppBarHomeScreen extends StatelessWidget {
                 Text(
                   "67",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      style: ElevatedButton.styleFrom(backgroundColor=Colors.amber),
-                      fontSize: 17),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.amber, // ✅ Fixed incorrect style
+                    fontSize: 17,
+                  ),
                 ),
-                const SizedBox(
-                  width: 30,
-                ),
+                const SizedBox(width: 30),
                 IconButton(
                   icon: Image.asset(
                     "assets/images/appBar/navbar_fire.png",
@@ -38,14 +41,15 @@ class AppBarHomeScreen extends StatelessWidget {
                   ),
                   onPressed: () {},
                 ),
-                Text("50",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.grey),
-                        fontSize: 17)),
-                const SizedBox(
-                  width: 40,
+                Text(
+                  "50",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey, // ✅ Fixed incorrect style
+                    fontSize: 17,
+                  ),
                 ),
+                const SizedBox(width: 40),
                 IconButton(
                   padding: const EdgeInsets.only(left: 16),
                   icon: Image.asset(
@@ -57,16 +61,17 @@ class AppBarHomeScreen extends StatelessWidget {
                 Text(
                   "130",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      style: ElevatedButton.styleFrom(backgroundColor=Colors.red),
-                      fontSize: 17),
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red, // ✅ Fixed incorrect style
+                    fontSize: 17,
+                  ),
                 ),
-                const SizedBox(
-                  width: 20,
-                ),
+                const SizedBox(width: 20),
               ],
             ),
-          ],
+          ),
+        ],
+      ),
     );
   }
 }
