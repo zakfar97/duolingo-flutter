@@ -41,18 +41,18 @@ class LoginTextField extends StatelessWidget {
             FocusScope.of(context).requestFocus(nextFocus);
           }
         },
-        style: const TextStyle(fontSize: 22, style: ElevatedButton.styleFrom(backgroundColor=Color(0xFFbdc6cf))),
+        style: const TextStyle(fontSize: 22, color: Color(0xFFbdc6cf)),
         decoration: InputDecoration(
           filled: true,
           fillColor: Colors.grey.shade200,
           hintText: hintText,
           contentPadding: const EdgeInsets.only(left: 14, bottom: 8, top: 8),
           focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(style: ElevatedButton.styleFrom(backgroundColor=Colors.white)),
+            borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(style: ElevatedButton.styleFrom(backgroundColor=Colors.white)),
+            borderSide: const BorderSide(color: Colors.white),
             borderRadius: BorderRadius.circular(8),
           ),
         ),

@@ -25,7 +25,7 @@ class AppBarHomeScreen extends StatelessWidget {
                   "67",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      style: ElevatedButton.styleFrom(backgroundColor=Colors.amber),
+                      color: Colors.amber,
                       fontSize: 17),
                 ),
                 const SizedBox(
@@ -41,7 +41,7 @@ class AppBarHomeScreen extends StatelessWidget {
                 Text("50",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.grey),
+                        color: Colors.grey,
                         fontSize: 17)),
                 const SizedBox(
                   width: 40,
@@ -58,7 +58,7 @@ class AppBarHomeScreen extends StatelessWidget {
                   "130",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      style: ElevatedButton.styleFrom(backgroundColor=Colors.red),
+                      color: Colors.red,
                       fontSize: 17),
                 ),
                 const SizedBox(

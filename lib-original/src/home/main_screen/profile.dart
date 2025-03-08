@@ -35,7 +35,7 @@ class _ProfileState extends State<Profile> {
                     ),
                   ],
                 ),
-                Divider(style: ElevatedButton.styleFrom(backgroundColor=Colors.grey.shade500)),
+                Divider(color: Colors.grey.shade500),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -63,7 +63,7 @@ class _ProfileState extends State<Profile> {
                             child: ListTile(
                                 leading: Icon(
                                   Icons.cloud_circle,
-                                  style: ElevatedButton.styleFrom(backgroundColor=Colors.amber),
+                                  color: Colors.amber,
                                 ),
                                 title: Text(
                                   "4600",
@@ -107,7 +107,7 @@ class _ProfileState extends State<Profile> {
                         _titleText("Amigos"),
                         Text("ADICIONAR AMIGOS", style: TextStyle(
                           fontSize: 18, fontWeight: FontWeight.bold,
-                          style: ElevatedButton.styleFrom(backgroundColor=Colors.lightBlue)),),
+                          color: Colors.lightBlue),),
                       ],
                     ),
                     Card(

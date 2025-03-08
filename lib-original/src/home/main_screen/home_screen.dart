@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 10, right: 15),
                       child: Divider(
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.black),
+                        color: Colors.black,
                         height: 50,
                       )),
                 ),
@@ -91,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 15, right: 10),
                       child: Divider(
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.black),
+                        color: Colors.black,
                         height: 50,
                       )),
                 ),

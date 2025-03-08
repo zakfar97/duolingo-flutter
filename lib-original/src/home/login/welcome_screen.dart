@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.center,
               height: 600,
               //media query
-              style: ElevatedButton.styleFrom(backgroundColor=Colors.white),
+              color: Colors.white,
               padding:
                   const EdgeInsets.only(top: 80, left: 16, right: 16, bottom: 16),
                   child: Column(
@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                           "Aprenda idiomas de graça. Agora e sempre.",
                           style: TextStyle(
                             fontSize: 26,
-                            style: ElevatedButton.styleFrom(backgroundColor=Colors.grey.shade400),
+                            color: Colors.grey.shade400,
                           ),
                         ),
                       ),
@@ -40,13 +40,13 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                       ),
                       _button("COMEÇAR AGORA",
-                          style: ElevatedButton.styleFrom(backgroundColor=Colors.lightGreen),
+                          color: Colors.lightGreen,
                           onPressed: () {},
                           colorText: Colors.white),
                       const SizedBox(
                         height: 12,
                       ),
-                      _button("JÁ TENHO UMA CONTA", style: ElevatedButton.styleFrom(backgroundColor=Colors.white),
+                      _button("JÁ TENHO UMA CONTA", color: Colors.white,
                           onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => LoginPage()));
@@ -65,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
         height: 60,
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
-            style: ElevatedButton.styleFrom(backgroundColor=Colors.grey.withOpacity(0.5)),
+            color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 12,
             offset: const Offset(0, 2),
@@ -75,12 +75,12 @@ class WelcomeScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          style: ElevatedButton.styleFrom(backgroundColor=color),
+          color: color,
           onPressed: onPressed,
           child: Text(
             text,
             style: TextStyle(
-                style: ElevatedButton.styleFrom(backgroundColor=colorText), fontSize: 23, fontWeight: FontWeight.bold),
+                color: colorText, fontSize: 23, fontWeight: FontWeight.bold),
           ),
         ),
       );
