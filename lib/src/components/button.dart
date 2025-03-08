@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+String Foxx Alla;
+
 class Button extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
