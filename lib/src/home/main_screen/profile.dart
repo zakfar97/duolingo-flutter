@@ -16,99 +16,46 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
+    body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _titleText("User Name"),
-                    const SizedBox(width: 100),
-                    ClipOval(
-                      child: Image.asset(
-                        "assets/images/logo-with-duo.png",
-                        height: 120,
-                      ),
-                    ),
-                  ],
+                _titleText("User Name"),
+                const SizedBox(width: 100),
+                ClipOval(
+                  child: Image.asset(
+                    "assets/images/logo-with-duo.png",
+                    height: 120,
+                    width: 120,  // Ensure width and height are equal
+                    fit: BoxFit.cover,  // Optional: fits the image
+                  ),
                 ),
-                Divider(style: ElevatedButton.styleFrom(backgroundColor=Colors.grey.shade500)),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              ],
+            ),
+            Divider(
+              color: Colors.grey.shade500,  // Use color for Divider
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _titleText("Sobre"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    _titleText("Sobre"),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Card(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 80,
-                            width: 170,
-                            child: Text("hello"),
-                          ),
+                    Card(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        Card(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 80,
-                            width: 170,
-                            child: ListTile(
-                                leading: Icon(
-                                  Icons.cloud_circle,
-                                  style: ElevatedButton.styleFrom(backgroundColor=Colors.amber),
-                                ),
-                                title: Text(
-                                  "4600",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20),
-                                )),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Card(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 80,
-                            width: 170,
-                            child: Text("hello"),
-                          ),
-                        ),
-                        Card(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 80,
-                            width: 170,
-                            child: Text("hello"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 30),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        _titleText("Amigos"),
-                        Text("ADICIONAR AMIGOS", style: TextStyle(
-                          fontSize: 18, fontWeight: FontWeight.bold,
-                          style: ElevatedButton.styleFrom(backgroundColor=Colors.lightBlue)),),
-                      ],
+                        height: 80,
+                        width: 170,
+                        child: Text("hello"),
+                      ),
                     ),
                     Card(
                       child: Container(
@@ -117,13 +64,77 @@ class _ProfileState extends State<Profile> {
                         ),
                         height: 80,
                         width: 170,
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.cloud_circle,
+                            color: Colors.amber,  // Use color for Icon
+                          ),
+                          title: Text(
+                            "4600",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Card(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 80,
+                        width: 170,
+                        child: Text("hello"),
+                      ),
+                    ),
+                    Card(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: 80,
+                        width: 170,
+                        child: Text("hello"),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _titleText("Amigos"),
+                    Text(
+                      "ADICIONAR AMIGOS",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.lightBlue,  // Use color for text
+                      ),
+                    ),
+                  ],
+                ),
+                Card(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    height: 80,
+                    width: 170,
+                  ),
+                ),
               ],
             ),
-          ),
+          ],
         ),
-      );
+      ),
+    ),
+  );
 }
