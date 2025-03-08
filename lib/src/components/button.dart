@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-String Foxx Alla;
-
 class Button extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -38,7 +36,9 @@ class Button extends StatelessWidget {
         )
             : Text(
           text, // Use the provided text
-          style: TextStyle(fontStyle: ElevatedButton.styleFrom(backgroundColor=colorText)), // Use the provided text color
+          style: TextStyle(
+            color: colorText,
+          ), // Use the provided text color
         ),
       ),
     );
