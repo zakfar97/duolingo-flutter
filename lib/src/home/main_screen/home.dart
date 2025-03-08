@@ -14,125 +14,90 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
+  static const double _iconSize = 41;
+  static const double _iconSizeSelected = 53;
+
   final List<Widget> screens = [
     HomeScreen(),
+    Stories(),
     Profile(),
     Ranking(),
     Store(),
-    Stories(),
   ];
+
   final PageStorageBucket _bucket = PageStorageBucket();
-  Widget currentScreen = HomeScreen();
+  late Widget currentScreen; // ✅ Declare currentScreen as a late variable
+
+  @override
+  void initState() {
+    super.initState();
+    currentScreen = screens[_currentIndex]; // ✅ Initialize it with the first screen
+  }
 
   @override
   Widget build(BuildContext context) {
-    const double _iconSize = 41;
-    const double _iconSizeSelected = 53;
-    final AppBarHomeScreen appBar = AppBarHomeScreen();
-
     return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(45),
-          child: appBar,
+      appBar: AppBarHomeScreen(), // ✅ Fix: AppBarHomeScreen implements PreferredSizeWidget
+      body: PageStorage(
+        bucket: _bucket,
+        child: currentScreen, // ✅ Use screens list
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: () {},
+        child: Image.asset(
+          "assets/images/floating_action_button/tab_training_selected.png",
+          height: 33,
         ),
-        body: PageStorage(
-          bucket: _bucket,
-          child: currentScreen,
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.white,
-          onPressed: () {},
-          child: Image.asset(
-            "assets/images/floating_action_button/tab_training_selected.png",
-            height: 33,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        currentIndex: _currentIndex,
+        backgroundColor: Colors.blue,
+        iconSize: _iconSize,
+        onTap: (int index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              _currentIndex == 0 ? Images.selectedLessons : Images.tabLessons,
+              size: _currentIndex == 0 ? _iconSizeSelected : _iconSize,
+            ),
+            label: "",
           ),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: _currentIndex,
-          backgroundColor: Colors.blue,
-          iconSize: _iconSize,
-          onTap: (int index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: _currentIndex == 0
-                    ? Images.selectedLessons
-                    : Images.tabLessons,
-                onPressed: () {
-                  setState(() {
-                    _currentIndex = 0;
-                    currentScreen = HomeScreen();
-                  });
-                },
-                iconSize: _currentIndex == 0 ? _iconSizeSelected : _iconSize,
-              ),
-              title: const Padding(padding: EdgeInsets.all(0)),
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              _currentIndex == 1 ? Images.selectedStories : Images.tabStories,
+              size: _currentIndex == 1 ? _iconSizeSelected : _iconSize,
             ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: _currentIndex == 1
-                    ? Images.selectedStories
-                    : Images.tabStories,
-                onPressed: () {
-                  setState(() {
-                    _currentIndex = 1;
-                    currentScreen = Stories();
-                  });
-                },
-                iconSize: _currentIndex == 1 ? _iconSizeSelected : _iconSize,
-              ),
-              title: const Padding(padding: EdgeInsets.all(0)),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              _currentIndex == 2 ? Images.selectedProfile : Images.tabProfile,
+              size: _currentIndex == 2 ? _iconSizeSelected : _iconSize,
             ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: _currentIndex == 2
-                    ? Images.selectedProfile
-                    : Images.tabProfile,
-                onPressed: () {
-                  setState(() {
-                    _currentIndex = 2;
-                    currentScreen = Profile();
-                  });
-                },
-                iconSize: _currentIndex == 2 ? _iconSizeSelected : _iconSize,
-              ),
-              title: const Padding(padding: EdgeInsets.all(0)),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              _currentIndex == 3 ? Images.selectedRanking : Images.tabRanking,
+              size: _currentIndex == 3 ? _iconSizeSelected : _iconSize,
             ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon: _currentIndex == 3
-                    ? Images.selectedRanking
-                    : Images.tabRanking,
-                onPressed: () {
-                  setState(() {
-                    _currentIndex = 3;
-                    currentScreen = Ranking();
-                  });
-                },
-                iconSize: _currentIndex == 3 ? _iconSizeSelected : _iconSize,
-              ),
-              title: const Padding(padding: EdgeInsets.all(0)),
+            label: "",
+          ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              _currentIndex == 4 ? Images.selectedStore : Images.tabStore,
+              size: _currentIndex == 4 ? _iconSizeSelected : _iconSize,
             ),
-            BottomNavigationBarItem(
-              icon: IconButton(
-                icon:
-                    _currentIndex == 4 ? Images.selectedStore : Images.tabStore,
-                onPressed: () {
-                  setState(() {
-                    _currentIndex = 4;
-                    currentScreen = Store();
-                  });
-                },
-                iconSize: _currentIndex == 4 ? _iconSizeSelected : _iconSize,
-              ),
-              title: const Padding(padding: EdgeInsets.all(0)),
-            ),
-          ],
-        ));
+            label: "",
+          ),
+        ],
+      ),
+    );
   }
 }
