@@ -9,10 +9,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   Text _textCirle(String text) =>
       Text(
-      text,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-    );
-
+        text,
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -73,13 +72,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               const SizedBox(height: 40),
-              Row(crossAxisAlignment: CrossAxisAlignment.end, children: <
-                  Widget>[
+              Row(crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
                 Expanded(
                   child: Container(
                       margin: const EdgeInsets.only(left: 10, right: 15),
                       child: Divider(
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.black),
+                        color: Colors.black, // ✅ Fixed here
                         height: 50,
                       )),
                 ),
@@ -91,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                       margin: const EdgeInsets.only(left: 15, right: 10),
                       child: Divider(
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.black),
+                        color: Colors.black, // ✅ Fixed here
                         height: 50,
                       )),
                 ),
