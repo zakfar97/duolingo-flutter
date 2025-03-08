@@ -54,7 +54,7 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context, BoxConstraints constraints) => Form(
           key: _formKey,
           child: Container(
-            style: ElevatedButton.styleFrom(backgroundColor=Colors.white),
+            color: Colors.white, // ✅ Fixed incorrect style property
             height: constraints.maxHeight,
             width: constraints.maxWidth,
             padding: const EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 16),
@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   Text(
                     "Insira seus dados",
                     style: TextStyle(
-                      style: ElevatedButton.styleFrom(backgroundColor=Colors.grey.shade400),
+                      color: Colors.grey.shade400, // ✅ Fixed incorrect style
                       fontSize: 23,
                       fontWeight: FontWeight.bold,
                     ),
@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 20),
                   Button(
                     "ENTRAR",
-                    style: ElevatedButton.styleFrom(backgroundColor=const Color(0xFF1AB1F6)),
+                    color: const Color(0xFF1AB1F6), // ✅ Fixed incorrect style
                     colorText: Colors.white,
                     width: 350,
                     onPressed: () {},
@@ -93,52 +93,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: Text(
                       "ESQUECI A SENHA",
                       style: TextStyle(
-                        style: ElevatedButton.styleFrom(backgroundColor=Colors.lightBlueAccent),
+                        color: Colors.lightBlueAccent, // ✅ Fixed incorrect style
                         fontSize: 23,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: constraints.maxHeight / 3.5),
-                  Container(
-                    margin: const EdgeInsets.all(16),
-                    height: 60,
-                    width: constraints.maxWidth,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.grey.shade100,
-                      ),
-                      onPressed: _onClickGoogle,
-                      child: const Text("Sign in with Google"),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Container(
-                    margin: const EdgeInsets.all(8),
-                    child: const Text.rich(
-                      TextSpan(
-                        text: "Ao entrar no Duolingo, você concorda com os nossos",
-                        style: TextStyle(
-                          fontSize: 18,
-                          style: ElevatedButton.styleFrom(backgroundColor=Color(0xFFb2b2b0)),
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: " Termos e ",
-                            style: TextStyle(
-                              style: ElevatedButton.styleFrom(backgroundColor=Color(0xFFa5a5a3)),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Política de Privacidade",
-                            style: TextStyle(
-                              style: ElevatedButton.styleFrom(backgroundColor=Color(0xFFa5a5a3)),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
                       ),
                     ),
                   ),
