@@ -2,28 +2,30 @@ import 'dart:convert' as convert;
 import 'package:duolingo/src/sql/prefs.dart';
 
 class User {
-  String login;
-  String name;
-  String email;
-  String urlPhoto;
-  String token;
-  List<String> roles;
+  String? login;
+  String? name;
+  String? email;
+  String? urlPhoto;
+  String? token;
+  List<String>? roles;
 
-  User(
-      {this.login,
-      this.name,
-      this.email,
-      this.urlPhoto,
-      this.token,
-      this.roles});
+  User({
+    this.login,
+    this.name,
+    this.email,
+    this.urlPhoto,
+    this.token,
+    this.roles,
+  });
 
-  User.firebase(
-      {this.login,
-      this.name,
-      this.email,
-      this.urlPhoto,
-      this.token,
-      this.roles});
+  User.firebase({
+    this.login,
+    this.name,
+    this.email,
+    this.urlPhoto,
+    this.token,
+    this.roles,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     login = json['login'];
@@ -31,11 +33,13 @@ class User {
     email = json['email'];
     urlPhoto = json['urlPhoto'];
     token = json['token'];
-    roles = json['roles'] != null ? json['roles'].cast<String>() : null;
+    roles = json['roles'] != null && json['roles'] is List
+        ? List<String>.from(json['roles'])
+        : [];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['login'] = login;
     data['name'] = name;
     data['email'] = email;
@@ -50,25 +54,21 @@ class User {
   }
 
   void save() {
-    final Map map = toJson();
-
+    final Map<String, dynamic> map = toJson();
     final String json = convert.json.encode(map);
-
     Prefs.setString("user.prefs", json);
   }
 
-  static Future<User> get() async {
+  static Future<User?> get() async {
     final String json = await Prefs.getString("user.prefs");
     if (json.isEmpty) {
       return null;
     }
-    Map map = convert.json.decode(json);
+    Map<String, dynamic> map = convert.json.decode(json);
     final User user = User.fromJson(map);
     return user;
   }
 
   @override
-  String toString() =>
-    "User{login: $login, name: $name}";
-  
+  String toString() => "User{login: $login, name: $name}";
 }
