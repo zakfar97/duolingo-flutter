@@ -58,41 +58,43 @@ class _HomeState extends State<Home> {
         onTap: (int index) {
           setState(() {
             _currentIndex = index;
+            currentScreen = screens[index]; // ✅ Update currentScreen too
           });
         },
+
         items: [
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              _currentIndex == 0 ? Images.selectedLessons : Images.tabLessons,
-              size: _currentIndex == 0 ? _iconSizeSelected : _iconSize,
+            icon: Image.asset(
+              (_currentIndex == 0 ? Images.selectedLessons : Images.tabLessons) as String,
+              height: _currentIndex == 0 ? _iconSizeSelected : _iconSize, // ✅ Correct
             ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              _currentIndex == 1 ? Images.selectedStories : Images.tabStories,
-              size: _currentIndex == 1 ? _iconSizeSelected : _iconSize,
+            icon: Image.asset(
+              (_currentIndex == 1 ? Images.selectedStories : Images.tabStories) as String,
+              height: _currentIndex == 1 ? _iconSizeSelected : _iconSize,
             ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              _currentIndex == 2 ? Images.selectedProfile : Images.tabProfile,
-              size: _currentIndex == 2 ? _iconSizeSelected : _iconSize,
+            icon: Image.asset(
+              (_currentIndex == 2 ? Images.selectedProfile : Images.tabProfile) as String,
+              height: _currentIndex == 2 ? _iconSizeSelected : _iconSize,
             ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              _currentIndex == 3 ? Images.selectedRanking : Images.tabRanking,
-              size: _currentIndex == 3 ? _iconSizeSelected : _iconSize,
+            icon: Image.asset(
+              (_currentIndex == 3 ? Images.selectedRanking : Images.tabRanking) as String,
+              height: _currentIndex == 3 ? _iconSizeSelected : _iconSize,
             ),
             label: "",
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(
-              _currentIndex == 4 ? Images.selectedStore : Images.tabStore,
-              size: _currentIndex == 4 ? _iconSizeSelected : _iconSize,
+            icon: Image.asset(
+              (_currentIndex == 4 ? Images.selectedStore : Images.tabStore) as String,
+              height: _currentIndex == 4 ? _iconSizeSelected : _iconSize,
             ),
             label: "",
           ),

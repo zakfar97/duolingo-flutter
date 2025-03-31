@@ -59,7 +59,7 @@ class WelcomeScreen extends StatelessWidget {
   }
 
   Container _button(String text,
-          {Color color, Color colorText, Function onPressed}) =>
+          {required Color color, required Color colorText, required Function onPressed}) =>
       Container(
         width: 350,
         height: 60,
