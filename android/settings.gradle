@@ -1,3 +1,14 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url 'https://storage.googleapis.com/flutter_infra_release/maven'
+        }
+    }
+}
+
 include ':app'
 
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
