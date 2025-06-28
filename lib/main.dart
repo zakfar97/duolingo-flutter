@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'src/home/login/welcome_screen.dart';
+import 'presentation/pages/auth/welcome_screen.dart';
 
 
 void main() => runApp(MyApp());
